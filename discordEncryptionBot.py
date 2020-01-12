@@ -197,4 +197,4 @@ async def on_message(message):
 
 
 
-client.run('NDk5MzgxMDQ1MTI1MTg1NTM3.Dp7ctQ.stwLT83k4xVztx0-XhdjfRio0p4')
+client.run('DISCORD KEY HERE')
