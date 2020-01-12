@@ -2,6 +2,7 @@
 
 import pandas as pd
 import random as rd
+import re
 
 questions = pd.read_table('jeopardyQuestions.tsv', header=0)
 questionsFrame = pd.DataFrame(questions)
@@ -58,30 +59,35 @@ def startGame():
     if input("Would you like to play? Y/N").lower() in ['yes', 'y', 'ye']:
         while True:
             questionNum += 1
-            question, rightAns, value = questionGen()
-            print()
-            print('-' * 20)
-            print('Your money:', playerMoney)
-            print('Here is question number', str(questionNum) + '!\n')
-            print(question)
-            userAns = input('Please type your answer: ').lower()
-            if userAns == 'a':
-                userAns = 0
-            elif userAns == 'b':
-                userAns = 1
-            elif userAns == 'c':
-                userAns = 2
-            elif userAns == 'd':
-                userAns = 3
-            if userAns == rightAns:
-                print('\nCorrect!')
-                playerMoney += value
+            try:
+                question, rightAns, value = questionGen()
+                question = re.sub('[/"/\/]', '', question)
+            except:
+                pass
             else:
-                print('\nIncorrect, the correct answer was:', options[rightAns])
-                
-            if input('Would you like another question? Y/N').lower() not in ['yes', 'y', 'ye']:
-                print('Thanks for playing!')
-                break
+                print()
+                print('-' * 20)
+                print('Your money:', playerMoney)
+                print('Here is question number', str(questionNum) + '!\n')
+                print(question)
+                userAns = input('Please type your answer: ').lower()
+                if userAns == 'a':
+                    userAns = 0
+                elif userAns == 'b':
+                    userAns = 1
+                elif userAns == 'c':
+                    userAns = 2
+                elif userAns == 'd':
+                    userAns = 3
+                if userAns == rightAns:
+                    print('\nCorrect!')
+                    playerMoney += value
+                else:
+                    print('\nIncorrect, the correct answer was:', options[rightAns])
+                    
+                if input('Would you like another question? Y/N').lower() not in ['yes', 'y', 'ye']:
+                    print('Thanks for playing!')
+                    break
     else:
         print('\nBye!')
         
