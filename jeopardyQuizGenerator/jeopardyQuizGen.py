@@ -87,6 +87,7 @@ def startGame():
                     
                 if input('Would you like another question? Y/N').lower() not in ['yes', 'y', 'ye']:
                     print('Thanks for playing!')
+                    print('Your final bank value was:', playerMoney)
                     break
     else:
         print('\nBye!')
