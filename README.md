@@ -24,3 +24,9 @@ Project:
 discordEncryptionBot - this is a discord bot I created which takes user text and returns an encrypted version of the text and then deletes the plaintext, encryption key is based on the date, so text is only valid for the day it was sent on
 Files:
 discordEncryptionBot - only project file, note if you want it to work you will have to put youre own discord bot key into the file
+
+4)
+Project:
+randomMapGen - a project in which we have two different map generation methods and then a colored png of said map is output
+Files:
+randomMapGen.py - only file needed, semiRandomMapGen() takes into account the tiles surrounding, while seededMapGen() uses a seed and is capable of generating the same map, however the generation is entirely random
